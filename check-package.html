@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Package - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="check-package.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <li><a href="check-package.html" class="nav-link active"><i class="fas fa-box"></i>Check Package</a></li>
+                <li><a href="book-package.html" class="nav-link"><i class="fas fa-bookmark"></i>Book Package</a></li>
+                <li><a href="view-package.html" class="nav-link"><i class="fas fa-box-open"></i>View Package</a></li>
+                <li><a href="check-hotels.html" class="nav-link"><i class="fas fa-hotel"></i>Check Hotels</a></li>
+                <li><a href="book-hotel.html" class="nav-link"><i class="fas fa-bed"></i>Book Hotel</a></li>
+                <li><a href="view-hotel.html" class="nav-link"><i class="fas fa-concierge-bell"></i>View Hotel</a></li>
+                <li><a href="destinations.html" class="nav-link"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
+                <li><a href="payment.html" class="nav-link"><i class="fas fa-credit-card"></i>Payment</a></li>
+                <li><a href="calculator.html" class="nav-link"><i class="fas fa-calculator"></i>Calculator</a></li>
+                <li><a href="notepad.html" class="nav-link"><i class="fas fa-sticky-note"></i>Notepad</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Available Travel Packages</h1>
+                    <p>Explore our curated collection of travel experiences</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="filters-section">
+                    <div class="search-filter">
+                        <input type="text" id="searchPackage" placeholder="Search packages...">
+                        <select id="destinationType">
+                            <option value="">All Destinations</option>
+                            <option value="beach">Beach</option>
+                            <option value="mountain">Mountain</option>
+                            <option value="city">City</option>
+                            <option value="adventure">Adventure</option>
+                        </select>
+                        <select id="priceRange">
+                            <option value="">All Prices</option>
+                            <option value="budget">Budget (₹0 - ₹20,000)</option>
+                            <option value="medium">Medium (₹20,001 - ₹50,000)</option>
+                            <option value="luxury">Luxury (₹50,001+)</option>
+                        </select>
+                        <select id="duration">
+                            <option value="">All Durations</option>
+                            <option value="short">Short (1-3 days)</option>
+                            <option value="medium">Medium (4-7 days)</option>
+                            <option value="long">Long (8+ days)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="packages-grid">
+                    <!-- Package cards will be dynamically added here -->
+                </div>
+
+                <template id="package-template">
+                    <div class="package-card">
+                        <div class="package-image">
+                            <img src="" alt="Package Image">
+                            <div class="package-badge"></div>
+                        </div>
+                        <div class="package-content">
+                            <h3 class="package-title"></h3>
+                            <div class="package-details">
+                                <div class="detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="duration"></span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="location"></span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-users"></i>
+                                    <span class="group-size"></span>
+                                </div>
+                            </div>
+                            <div class="package-features"></div>
+                            <div class="package-footer">
+                                <div class="package-price">
+                                    <span class="price"></span>
+                                    <span class="per-person">per person</span>
+                                </div>
+                                <button class="btn-view-details">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </main>
+    </div>
+
+    <!-- Package Details Modal -->
+    <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="package-images">
+                    <div class="main-image">
+                        <img src="" alt="Package Main Image">
+                    </div>
+                    <div class="thumbnail-images"></div>
+                </div>
+                <div class="package-info">
+                    <h2 class="modal-title"></h2>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="modal-duration"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="modal-location"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <span class="modal-group-size"></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-star"></i>
+                            <span class="modal-rating"></span>
+                        </div>
+                    </div>
+                    <div class="modal-description"></div>
+                    <div class="modal-itinerary">
+                        <h3>Itinerary</h3>
+                        <div class="itinerary-list"></div>
+                    </div>
+                    <div class="modal-inclusions">
+                        <h3>Package Includes</h3>
+                        <ul class="inclusions-list"></ul>
+                    </div>
+                    <div class="modal-price">
+                        <div class="price-details">
+                            <span class="modal-price-amount"></span>
+                            <span class="per-person">per person</span>
+                        </div>
+                        <button class="btn-book-now">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="check-package.js"></script>
+</body>
+</html>

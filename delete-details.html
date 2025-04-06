@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Details - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="delete-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link active"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <!-- Rest of the navigation items -->
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Delete Personal Details</h1>
+                    <p>Remove user information from the system</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="delete-container">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Enter username to delete">
+                            <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                        </div>
+                    </div>
+
+                    <div class="user-preview" style="display: none;">
+                        <div class="preview-header">
+                            <i class="fas fa-exclamation-triangle warning-icon"></i>
+                            <h2>Confirm Deletion</h2>
+                        </div>
+                        <div class="user-info">
+                            <div class="info-row">
+                                <span class="label">Username:</span>
+                                <span id="previewUsername" class="value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Full Name:</span>
+                                <span id="previewName" class="value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Email:</span>
+                                <span id="previewEmail" class="value"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Phone:</span>
+                                <span id="previewPhone" class="value"></span>
+                            </div>
+                        </div>
+                        <div class="warning-message">
+                            <p>Are you sure you want to delete this user? This action cannot be undone.</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="confirmDelete" class="btn-delete">
+                                <i class="fas fa-trash-alt"></i> Delete User
+                            </button>
+                            <button id="cancelDelete" class="btn-cancel">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3>Enter Password to Confirm</h3>
+            <div class="password-input">
+                <input type="password" id="confirmPassword" placeholder="Enter your password">
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmPasswordBtn" class="btn-confirm">Confirm</button>
+                <button id="cancelPasswordBtn" class="btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="delete-details.js"></script>
+</body>
+</html>

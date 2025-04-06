@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <li><a href="check-package.html" class="nav-link"><i class="fas fa-box"></i>Check Package</a></li>
+                <li><a href="book-package.html" class="nav-link"><i class="fas fa-bookmark"></i>Book Package</a></li>
+                <li><a href="view-package.html" class="nav-link"><i class="fas fa-box-open"></i>View Package</a></li>
+                <li><a href="check-hotels.html" class="nav-link"><i class="fas fa-hotel"></i>Check Hotels</a></li>
+                <li><a href="book-hotel.html" class="nav-link"><i class="fas fa-bed"></i>Book Hotel</a></li>
+                <li><a href="view-hotel.html" class="nav-link"><i class="fas fa-concierge-bell"></i>View Hotel</a></li>
+                <li><a href="destinations.html" class="nav-link"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
+                <li><a href="payment.html" class="nav-link active"><i class="fas fa-credit-card"></i>Payment</a></li>
+                <li><a href="calculator.html" class="nav-link"><i class="fas fa-calculator"></i>Calculator</a></li>
+                <li><a href="notepad.html" class="nav-link"><i class="fas fa-sticky-note"></i>Notepad</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Payment</h1>
+                    <p>Complete your booking payment</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="payment-container">
+                    <div class="booking-summary">
+                        <h2>Booking Summary</h2>
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span>Booking Type</span>
+                                <span id="bookingType">Hotel Booking</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Booking ID</span>
+                                <span id="bookingId">HB001</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Duration</span>
+                                <span id="duration">3 Nights</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Guests</span>
+                                <span id="guests">2 Adults, 1 Child</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total Amount</span>
+                                <span id="totalAmount">₹35,999</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h2>Select Payment Method</h2>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" name="paymentMethod" id="creditCard" value="creditCard" checked>
+                                <label for="creditCard">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit Card</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" name="paymentMethod" id="debitCard" value="debitCard">
+                                <label for="debitCard">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Debit Card</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" name="paymentMethod" id="upi" value="upi">
+                                <label for="upi">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>UPI</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" name="paymentMethod" id="netBanking" value="netBanking">
+                                <label for="netBanking">
+                                    <i class="fas fa-university"></i>
+                                    <span>Net Banking</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="payment-forms">
+                            <form id="creditCardForm" class="payment-form active">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="password" id="cvv" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card</label>
+                                    <input type="text" id="cardName" placeholder="John Doe">
+                                </div>
+                            </form>
+
+                            <form id="upiForm" class="payment-form">
+                                <div class="form-group">
+                                    <label for="upiId">UPI ID</label>
+                                    <input type="text" id="upiId" placeholder="username@upi">
+                                </div>
+                            </form>
+
+                            <form id="netBankingForm" class="payment-form">
+                                <div class="form-group">
+                                    <label for="bank">Select Bank</label>
+                                    <select id="bank">
+                                        <option value="">Select your bank</option>
+                                        <option value="sbi">State Bank of India</option>
+                                        <option value="hdfc">HDFC Bank</option>
+                                        <option value="icici">ICICI Bank</option>
+                                        <option value="axis">Axis Bank</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="payment-actions">
+                            <button id="payNowBtn" class="btn-pay">
+                                Pay Now <span id="payAmount">₹35,999</span>
+                            </button>
+                            <button class="btn-cancel">Cancel Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Payment Processing Modal -->
+    <div id="processingModal" class="modal">
+        <div class="modal-content">
+            <div class="processing-animation">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <h2>Processing Payment</h2>
+            <p>Please do not close this window...</p>
+        </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <div class="success-animation">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Your booking has been confirmed.</p>
+            <div class="success-details">
+                <div class="detail-item">
+                    <span>Transaction ID</span>
+                    <span id="transactionId">TXN123456789</span>
+                </div>
+                <div class="detail-item">
+                    <span>Amount Paid</span>
+                    <span id="amountPaid">₹35,999</span>
+                </div>
+            </div>
+            <div class="success-actions">
+                <button id="viewBookingBtn" class="btn-primary">View Booking</button>
+                <button id="downloadReceiptBtn" class="btn-secondary">
+                    <i class="fas fa-download"></i> Download Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

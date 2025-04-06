@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Package - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="view-package.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <li><a href="check-package.html" class="nav-link"><i class="fas fa-box"></i>Check Package</a></li>
+                <li><a href="book-package.html" class="nav-link"><i class="fas fa-bookmark"></i>Book Package</a></li>
+                <li><a href="view-package.html" class="nav-link active"><i class="fas fa-box-open"></i>View Package</a></li>
+                <li><a href="check-hotels.html" class="nav-link"><i class="fas fa-hotel"></i>Check Hotels</a></li>
+                <li><a href="book-hotel.html" class="nav-link"><i class="fas fa-bed"></i>Book Hotel</a></li>
+                <li><a href="view-hotel.html" class="nav-link"><i class="fas fa-concierge-bell"></i>View Hotel</a></li>
+                <li><a href="destinations.html" class="nav-link"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
+                <li><a href="payment.html" class="nav-link"><i class="fas fa-credit-card"></i>Payment</a></li>
+                <li><a href="calculator.html" class="nav-link"><i class="fas fa-calculator"></i>Calculator</a></li>
+                <li><a href="notepad.html" class="nav-link"><i class="fas fa-sticky-note"></i>Notepad</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Your Booked Packages</h1>
+                    <p>View and manage your travel bookings</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="bookings-container">
+                    <div class="filters">
+                        <div class="search-box">
+                            <input type="text" id="searchBooking" placeholder="Search bookings...">
+                            <button id="searchBtn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="statusFilter">
+                                <option value="all">All Status</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <select id="dateFilter">
+                                <option value="all">All Time</option>
+                                <option value="month">This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bookings-grid">
+                        <!-- Booking cards will be dynamically added here -->
+                    </div>
+
+                    <template id="booking-template">
+                        <div class="booking-card">
+                            <div class="booking-image">
+                                <img src="" alt="Package Image">
+                                <div class="booking-status"></div>
+                            </div>
+                            <div class="booking-details">
+                                <h3 class="package-title"></h3>
+                                <div class="booking-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span class="travel-date"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-users"></i>
+                                        <span class="travelers"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-receipt"></i>
+                                        <span class="booking-id"></span>
+                                    </div>
+                                </div>
+                                <div class="price-info">
+                                    <span class="total-price"></span>
+                                    <span class="payment-status"></span>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn-view-details">View Details</button>
+                                    <button class="btn-download-invoice">
+                                        <i class="fas fa-download"></i> Invoice
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Booking Details</h2>
+                <div class="booking-status-badge"></div>
+            </div>
+            <div class="modal-body">
+                <div class="booking-overview">
+                    <div class="overview-image">
+                        <img src="" alt="Package Image">
+                    </div>
+                    <div class="overview-details">
+                        <h3 class="modal-package-title"></h3>
+                        <div class="overview-info">
+                            <div class="info-group">
+                                <label>Booking ID</label>
+                                <p class="modal-booking-id"></p>
+                            </div>
+                            <div class="info-group">
+                                <label>Travel Date</label>
+                                <p class="modal-travel-date"></p>
+                            </div>
+                            <div class="info-group">
+                                <label>Duration</label>
+                                <p class="modal-duration"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-sections">
+                    <div class="section">
+                        <h4>Traveler Details</h4>
+                        <div class="traveler-info">
+                            <div class="info-row">
+                                <span>Lead Traveler</span>
+                                <span class="modal-lead-traveler"></span>
+                            </div>
+                            <div class="info-row">
+                                <span>Contact</span>
+                                <span class="modal-contact"></span>
+                            </div>
+                            <div class="info-row">
+                                <span>Travelers</span>
+                                <span class="modal-travelers"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4>Payment Details</h4>
+                        <div class="payment-info">
+                            <div class="info-row">
+                                <span>Total Amount</span>
+                                <span class="modal-total-amount"></span>
+                            </div>
+                            <div class="info-row">
+                                <span>Payment Status</span>
+                                <span class="modal-payment-status"></span>
+                            </div>
+                            <div class="info-row">
+                                <span>Payment Date</span>
+                                <span class="modal-payment-date"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h4>Special Requests</h4>
+                        <p class="modal-special-requests"></p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-download-itinerary">
+                        <i class="fas fa-file-pdf"></i> Download Itinerary
+                    </button>
+                    <button class="btn-support">
+                        <i class="fas fa-headset"></i> Contact Support
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="view-package.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="destinations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <li><a href="check-package.html" class="nav-link"><i class="fas fa-box"></i>Check Package</a></li>
+                <li><a href="book-package.html" class="nav-link"><i class="fas fa-bookmark"></i>Book Package</a></li>
+                <li><a href="view-package.html" class="nav-link"><i class="fas fa-box-open"></i>View Package</a></li>
+                <li><a href="check-hotels.html" class="nav-link"><i class="fas fa-hotel"></i>Check Hotels</a></li>
+                <li><a href="book-hotel.html" class="nav-link"><i class="fas fa-bed"></i>Book Hotel</a></li>
+                <li><a href="view-hotel.html" class="nav-link"><i class="fas fa-concierge-bell"></i>View Hotel</a></li>
+                <li><a href="destinations.html" class="nav-link active"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
+                <li><a href="payment.html" class="nav-link"><i class="fas fa-credit-card"></i>Payment</a></li>
+                <li><a href="calculator.html" class="nav-link"><i class="fas fa-calculator"></i>Calculator</a></li>
+                <li><a href="notepad.html" class="nav-link"><i class="fas fa-sticky-note"></i>Notepad</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Explore Destinations</h1>
+                    <p>Discover amazing places around the world</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="destinations-container">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <input type="text" id="searchDestination" placeholder="Search destinations...">
+                            <button id="searchBtn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-options">
+                            <select id="regionFilter">
+                                <option value="all">All Regions</option>
+                                <option value="asia">Asia</option>
+                                <option value="europe">Europe</option>
+                                <option value="americas">Americas</option>
+                                <option value="africa">Africa</option>
+                                <option value="oceania">Oceania</option>
+                            </select>
+                            <select id="typeFilter">
+                                <option value="all">All Types</option>
+                                <option value="beach">Beach</option>
+                                <option value="mountain">Mountain</option>
+                                <option value="city">City</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="adventure">Adventure</option>
+                            </select>
+                            <select id="budgetFilter">
+                                <option value="all">All Budgets</option>
+                                <option value="budget">Budget</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="featured-destinations">
+                        <h2>Featured Destinations</h2>
+                        <div class="featured-slider">
+                            <!-- Featured destinations will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="destinations-grid">
+                        <!-- Destination cards will be added dynamically -->
+                    </div>
+
+                    <template id="destination-template">
+                        <div class="destination-card">
+                            <div class="destination-image">
+                                <img src="" alt="Destination Image">
+                                <div class="destination-type"></div>
+                            </div>
+                            <div class="destination-content">
+                                <h3 class="destination-name"></h3>
+                                <div class="destination-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span></span>
+                                </div>
+                                <div class="destination-highlights">
+                                    <div class="highlight">
+                                        <i class="fas fa-clock"></i>
+                                        <span class="duration"></span>
+                                    </div>
+                                    <div class="highlight">
+                                        <i class="fas fa-tag"></i>
+                                        <span class="price-range"></span>
+                                    </div>
+                                    <div class="highlight">
+                                        <i class="fas fa-star"></i>
+                                        <span class="rating"></span>
+                                    </div>
+                                </div>
+                                <p class="destination-description"></p>
+                                <div class="destination-actions">
+                                    <button class="btn-view-details">View Details</button>
+                                    <button class="btn-check-packages">Check Packages</button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Destination Details Modal -->
+    <div id="destinationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="destination-gallery">
+                    <div class="main-image">
+                        <img src="" alt="Destination Main Image">
+                    </div>
+                    <div class="thumbnail-images"></div>
+                </div>
+                <div class="destination-info">
+                    <h2 class="modal-destination-name"></h2>
+                    <div class="modal-location"></div>
+                    <div class="modal-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="modal-duration"></span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-tag"></i>
+                            <span class="modal-price-range"></span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-star"></i>
+                            <span class="modal-rating"></span>
+                        </div>
+                    </div>
+                    <div class="modal-description"></div>
+                    <div class="modal-attractions">
+                        <h3>Top Attractions</h3>
+                        <ul class="attractions-list"></ul>
+                    </div>
+                    <div class="modal-activities">
+                        <h3>Popular Activities</h3>
+                        <div class="activities-grid"></div>
+                    </div>
+                    <div class="modal-weather">
+                        <h3>Weather</h3>
+                        <div class="weather-info"></div>
+                    </div>
+                    <div class="modal-map">
+                        <h3>Location</h3>
+                        <div id="destinationMap"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-view-packages">View Available Packages</button>
+                        <button class="btn-save-wishlist">
+                            <i class="far fa-heart"></i> Save to Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="destinations.js"></script>
+</body>
+</html>

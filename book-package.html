@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Package - Travel and Tourism Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="book-package.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <div class="nav-header">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel & Tourism</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i>Dashboard</a></li>
+                <li><a href="add-personal-details.html" class="nav-link"><i class="fas fa-user-plus"></i>Add Personal Details</a></li>
+                <li><a href="update-details.html" class="nav-link"><i class="fas fa-user-edit"></i>Update Details</a></li>
+                <li><a href="view-details.html" class="nav-link"><i class="fas fa-eye"></i>View Details</a></li>
+                <li><a href="delete-details.html" class="nav-link"><i class="fas fa-user-minus"></i>Delete Details</a></li>
+                <li><a href="check-package.html" class="nav-link"><i class="fas fa-box"></i>Check Package</a></li>
+                <li><a href="book-package.html" class="nav-link active"><i class="fas fa-bookmark"></i>Book Package</a></li>
+                <li><a href="view-package.html" class="nav-link"><i class="fas fa-box-open"></i>View Package</a></li>
+                <li><a href="check-hotels.html" class="nav-link"><i class="fas fa-hotel"></i>Check Hotels</a></li>
+                <li><a href="book-hotel.html" class="nav-link"><i class="fas fa-bed"></i>Book Hotel</a></li>
+                <li><a href="view-hotel.html" class="nav-link"><i class="fas fa-concierge-bell"></i>View Hotel</a></li>
+                <li><a href="destinations.html" class="nav-link"><i class="fas fa-map-marker-alt"></i>Destinations</a></li>
+                <li><a href="payment.html" class="nav-link"><i class="fas fa-credit-card"></i>Payment</a></li>
+                <li><a href="calculator.html" class="nav-link"><i class="fas fa-calculator"></i>Calculator</a></li>
+                <li><a href="notepad.html" class="nav-link"><i class="fas fa-sticky-note"></i>Notepad</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About</a></li>
+            </ul>
+        </nav>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Book Your Travel Package</h1>
+                    <p>Complete your booking details below</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="booking-container">
+                    <div class="package-selection">
+                        <h2>Selected Package</h2>
+                        <div class="selected-package">
+                            <img src="" alt="Package Image" id="packageImage">
+                            <div class="package-info">
+                                <h3 id="packageTitle">Package Title</h3>
+                                <p id="packageDuration">Duration</p>
+                                <p id="packageLocation">Location</p>
+                                <p class="package-price">Price: <span id="packagePrice">₹0</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-section">
+                            <h3>Travel Details</h3>
+                            <div class="form-group">
+                                <label for="travelDate">Travel Date</label>
+                                <input type="date" id="travelDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adults">Number of Adults</label>
+                                <input type="number" id="adults" min="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="children">Number of Children (Below 12 years)</label>
+                                <input type="number" id="children" min="0" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Special Requests</h3>
+                            <div class="form-group">
+                                <label for="requests">Additional Requirements</label>
+                                <textarea id="requests" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="price-summary">
+                            <h3>Price Summary</h3>
+                            <div class="price-details">
+                                <div class="price-row">
+                                    <span>Base Price</span>
+                                    <span id="basePrice">₹0</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Adults (x<span id="adultCount">1</span>)</span>
+                                    <span id="adultPrice">₹0</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Children (x<span id="childCount">0</span>)</span>
+                                    <span id="childPrice">₹0</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Taxes & Fees</span>
+                                    <span id="taxPrice">₹0</span>
+                                </div>
+                                <div class="price-row total">
+                                    <span>Total Amount</span>
+                                    <span id="totalPrice">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-book">Proceed to Payment</button>
+                            <button type="button" class="btn-cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="book-package.js"></script>
+</body>
+</html>
